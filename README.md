@@ -7,8 +7,8 @@ AIVOA Round 1 Full Stack Developer Assessment.
 
 - **Frontend:** React + Redux Toolkit, React Router, Google Inter font
 - **Backend:** FastAPI + SQLAlchemy
-- **AI Agents:** LangGraph pipeline calling Groq (`gemma2-9b-it`, fallback `llama-3.3-70b-versatile`)
-- **Database:** PostgreSQL (MySQL also supported — see `.env.example`)
+- **AI Agents:** LangGraph pipeline calling Groq (`llama-3.3-70b-versatile`, fallback `llama-3.3-70b-versatile`)
+- **Database:** PostgreSQL 
 
 ## Architecture
 
@@ -50,7 +50,6 @@ parallelized later without rewriting pipeline logic.
 cd backend
 python -m venv venv && source venv/bin/activate   # or venv\Scripts\activate on Windows
 pip install -r requirements.txt
-cp .env.example .env
 # edit .env: set DATABASE_URL and GROQ_API_KEY (get one at https://console.groq.com)
 uvicorn app.main:app --reload --port 8000
 ```
@@ -93,11 +92,3 @@ Visit `http://localhost:5173`. The Vite dev server proxies `/api` requests to
 - All AI outputs (summary, root cause, CAPA, risk) are hypotheses for a human investigator, not
   final QA decisions — this is reflected in the prompts.
 
-## Next steps to finish the assignment
-
-1. Watch the demo video and adjust `ComplaintStatus`, form fields, and the pipeline order/nodes
-   to match the demonstrated workflow exactly.
-2. Get a Groq API key and test the pipeline end-to-end with `seed_data.py`.
-3. Record the 10–15 minute demo video covering: AI tools, frontend workflow, code flow/architecture,
-   LangGraph implementation, and key design decisions.
-4. Push to GitHub and submit via the form.
